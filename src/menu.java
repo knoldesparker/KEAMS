@@ -19,7 +19,6 @@ public class menu {
             try {
                 selector = scanner.nextInt();
             } catch (InputMismatchException iME){
-                System.out.println("Forkert indput");
             }
             scanner.nextLine();
             switch (selector){
