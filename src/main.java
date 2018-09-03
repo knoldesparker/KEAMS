@@ -8,6 +8,6 @@ public class main {
 
         //db.printUsers();
         //db.deleteUsers();
-        //db.insertUsers();
+        //db.insertStudent();
     }
 }

@@ -20,7 +20,8 @@ public class students {
             scanner.nextLine();
             switch (selector) {
                 case 1:
-                    System.out.println("Studerne");
+                    System.out.println("Opret Studerne");
+                    db.insertStudent();
                     break;
                 case 3:
                     System.out.println("Exit");

@@ -44,7 +44,7 @@ public class db {
         }
     }
 
-    public void insertUsers() {
+    public void insertStudent() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Insert name");
         String name = scanner.nextLine();
