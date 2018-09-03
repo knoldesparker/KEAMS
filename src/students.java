@@ -5,7 +5,7 @@ public class students {
     private boolean isRunning = true;
     private Scanner scanner = new Scanner(System.in);
     db db = new db();
-    
+
 
 
 
