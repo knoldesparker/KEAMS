@@ -98,7 +98,7 @@ public class students {
         String name = scanner.nextLine();
         System.out.println();
 
-        String query = "INSERT INTO students (stud_name) VALUES ('" + name + "'); ";
+        String query = "INSERT INTO students (student_name) VALUES ('" + name + "'); ";
 
         try (Connection connection = DriverManager.getConnection(dbUrl, username, password);
              Statement statement = connection.createStatement()) {
@@ -120,15 +120,20 @@ public class students {
         Integer courseId = scanner.nextInt();
         System.out.println();
 
-        String query = "INSERT INTO studentincourse (fk_student_id, fk_course_id) VALUES ('" + studenId + "', '" + courseId + "')";
+        String query = "INSERT INTO studentcourses (fk_student_id, fk_course_id) VALUES ('" + studenId + "', '" + courseId + "')";
 
         try (Connection connection = DriverManager.getConnection(dbUrl, username, password);
              Statement statement = connection.createStatement()) {
             System.out.println(query);
             statement.executeUpdate(query);
 
+        } catch (SQLIntegrityConstraintViolationException e) {
+            System.out.println("Denne studerne er allerade tilmeldt dette hold");
+            System.out.println(e.getMessage());
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+
         }
 
 
