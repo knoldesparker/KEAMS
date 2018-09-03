@@ -12,7 +12,8 @@ public class students {
             System.out.println("Studen Main menu\n" +
                     "[1] Opret Studerne\n" +
                     "[2] Slet studerne\n" +
-                    "[3] Exit");
+                    "[3] Print Studerne\n" +
+                    "[4] Exit");
             try {
                 selector = scanner.nextInt();
             } catch (InputMismatchException iME) {
@@ -23,7 +24,16 @@ public class students {
                     System.out.println("Opret Studerne");
                     db.insertStudent();
                     break;
+                case 2:
+                    System.out.println("Slet studerne");
+                    db.printStudents();
+                    db.deleteStudent();
+                    break;
                 case 3:
+                    System.out.println("Print students");
+                    db.printStudents();
+                    break;
+                case 4:
                     System.out.println("Exit");
                     isRunning = false;
                     break;

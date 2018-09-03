@@ -31,8 +31,12 @@ public class db {
 
     }
 
-    public void deleteUsers() {
-        String query = "DELETE FROM user WHERE nameuser = 'freja'";
+    public void deleteStudent() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Indtast #id på den studerne der skal slettes");
+        Integer id = scanner.nextInt();
+        System.out.println();
+        String query = "DELETE FROM students WHERE stud_id = ('" + id +"')";
 
         try (Connection connection = DriverManager.getConnection(dbUrl, username, password);
              Statement statement = connection.createStatement()) {

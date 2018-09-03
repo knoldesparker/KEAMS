@@ -7,7 +7,7 @@ public class main {
 
 
         //db.printUsers();
-        //db.deleteUsers();
+        //db.deleteStudent();
         //db.insertStudent();
     }
 }
