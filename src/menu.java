@@ -5,6 +5,7 @@ public class menu {
     private int selector;
     private boolean isRunning = true;
     private Scanner scanner = new Scanner(System.in);
+    students students = new students();
 
     public void mainmenu(){
         System.out.println("Kea Systems\n" + "Velkommen til KEA MS v0.1" );
@@ -24,6 +25,7 @@ public class menu {
             switch (selector){
                 case 1:
                     System.out.println("Studerne");
+                    students.studentMenu();
                     break;
 
                 case 2:
