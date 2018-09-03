@@ -53,7 +53,7 @@ public class students {
             }
 
     }
-    public void printStudents() {
+        public void printStudents() {
         query = "SELECT * FROM students";
 
         try (Connection connection = DriverManager.getConnection(dbUrl, username, password);
