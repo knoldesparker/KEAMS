@@ -17,7 +17,8 @@ public class students {
                     "[1] Opret Studerne\n" +
                     "[2] Slet studerne\n" +
                     "[3] Print Studerne\n" +
-                    "[4] Exit");
+                    "[4] Tilmeld Studerne\n" +
+                    "[5] Exit");
             try {
                 selector = scanner.nextInt();
             } catch (InputMismatchException iME) {
@@ -38,6 +39,10 @@ public class students {
                     printStudents();
                     break;
                 case 4:
+                    System.out.println("Tilmeld studerne");
+                    signupStudents();
+                    break;
+                case 5:
                     System.out.println("Exit");
                     isRunning = false;
                     break;
@@ -73,7 +78,6 @@ public class students {
     }
 
     public void deleteStudent() {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Indtast #id på den studerne der skal slettes");
         Integer id = scanner.nextInt();
         System.out.println();
@@ -90,7 +94,6 @@ public class students {
     }
 
     public void insertStudent() {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Insert name");
         String name = scanner.nextLine();
         System.out.println();
@@ -105,6 +108,30 @@ public class students {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+    }
+    public void signupStudents() {
+        course course = new course();
+        printStudents();
+        System.out.println("Indtast #id på den studerne der skal tilmeldels et hold");
+        Integer studenId = scanner.nextInt();
+        System.out.println();
+        course.printCourse();
+        System.out.println("Indtast #id på det kursus den studerne skal tilmeldes");
+        Integer courseId = scanner.nextInt();
+        System.out.println();
+
+        String query = "INSERT INTO studentincourse (fk_student_id, fk_course_id) VALUES ('" + studenId + "', '" + courseId + "')";
+
+        try (Connection connection = DriverManager.getConnection(dbUrl, username, password);
+             Statement statement = connection.createStatement()) {
+            System.out.println(query);
+            statement.executeUpdate(query);
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+
     }
 }
 

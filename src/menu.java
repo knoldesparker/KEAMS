@@ -7,6 +7,7 @@ public class menu {
     private Scanner scanner = new Scanner(System.in);
     students students = new students();
     teacher teacher = new teacher();
+    course course = new course();
 
     public void mainmenu(){
         System.out.println("Kea Systems\n" + "Velkommen til KEA MS v0.1" );
@@ -36,6 +37,8 @@ public class menu {
 
                 case 3:
                     System.out.println("Kurser");
+                    course.courseMenu();
+
                     break;
 
                 case 4:
