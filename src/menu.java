@@ -6,6 +6,7 @@ public class menu {
     private boolean isRunning = true;
     private Scanner scanner = new Scanner(System.in);
     students students = new students();
+    teacher teacher = new teacher();
 
     public void mainmenu(){
         System.out.println("Kea Systems\n" + "Velkommen til KEA MS v0.1" );
@@ -30,6 +31,7 @@ public class menu {
 
                 case 2:
                     System.out.println("Underviser");
+                    teacher.teacherMenu();
                     break;
 
                 case 3:
