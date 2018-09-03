@@ -20,6 +20,13 @@ CREATE TABLE courses(
     course_name VARCHAR(50)
 );
 
+CREATE TABLE assignments(
+	assignment_id INT AUTO_INCREMENT PRIMARY KEY,
+    assignment_name VARCHAR(50),
+    fk_course_id INT not null,
+    FOREIGN KEY(fk_course_id) REFERENCES course(course_id)
+);
+
 -- AUTHOR(S): ECS
 CREATE TABLE studentcourses(
 	fk_student_id INT,
