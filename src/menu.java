@@ -8,6 +8,7 @@ public class menu {
     students students = new students();
     teacher teacher = new teacher();
     course course = new course();
+    exsams exsams = new exsams();
 
     public void mainmenu(){
         System.out.println("Kea Systems\n" + "Velkommen til KEA MS v0.1" );
@@ -43,6 +44,7 @@ public class menu {
 
                 case 4:
                     System.out.println("Eksamer");
+                    exsams.exsamMenu();
                     break;
 
                 case 5:
