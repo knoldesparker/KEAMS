@@ -19,6 +19,11 @@ CREATE TABLE courses(
 	course_id INT AUTO_INCREMENT PRIMARY KEY,
     course_name VARCHAR(50)
 );
+CREATE TABLE exsams(
+  exsam_id int primary key,
+  exsam_name varchar (25),
+);
+CREATE TABLE
 
 -- AUTHOR(S): ECS
 CREATE TABLE product_orders(

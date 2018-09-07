@@ -19,38 +19,44 @@ public class students {
                     "[3] Print Studerne\n" +
                     "[4] Tilmeld Studerne\n" +
                     "[5] Exit");
+
             try {
                 selector = scanner.nextInt();
             } catch (InputMismatchException iME) {
             }
             scanner.nextLine();
-            switch (selector) {
-                case 1:
-                    System.out.println("Opret Studerne");
-                    insertStudent();
-                    break;
-                case 2:
-                    System.out.println("Slet studerne");
-                    printStudents();
-                    deleteStudent();
-                    break;
-                case 3:
-                    System.out.println("Print students");
-                    printStudents();
-                    break;
-                case 4:
-                    System.out.println("Tilmeld studerne");
-                    signupStudents();
-                    break;
-                case 5:
-                    System.out.println("Exit");
-                    isRunning = false;
-                    break;
-                default:
-                    System.out.println("forkert indput");
-                    break;
 
-            }
+                switch (selector) {
+                    case 1:
+                        System.out.println("Opret Studerne");
+                        insertStudent();
+                        studentMenu();
+                        break;
+                    case 2:
+                        System.out.println("Slet studerne");
+                        printStudents();
+                        deleteStudent();
+                        studentMenu();
+                        break;
+                    case 3:
+                        System.out.println("Print students");
+                        printStudents();
+                        studentMenu();
+                        break;
+                    case 4:
+                        System.out.println("Tilmeld studerne");
+                        signupStudents();
+                        studentMenu();
+                        break;
+                    case 5:
+                        System.out.println("Exit");
+                        isRunning = false;
+                        break;
+                    default:
+                        System.out.println("forkert indput");
+                        break;
+
+                }
 
     }
         public void printStudents() {
@@ -81,10 +87,11 @@ public class students {
         System.out.println("Indtast #id på den studerne der skal slettes");
         Integer id = scanner.nextInt();
         System.out.println();
-        String query = "DELETE FROM students WHERE stud_id = ('" + id +"')";
+        String query = "DELETE FROM students WHERE student_id = ('" + id +"')";
 
         try (Connection connection = DriverManager.getConnection(dbUrl, username, password);
              Statement statement = connection.createStatement()) {
+            System.out.println("Den studerne er slettet");
             System.out.println(query);
             statement.executeUpdate(query);
 
@@ -103,6 +110,7 @@ public class students {
         try (Connection connection = DriverManager.getConnection(dbUrl, username, password);
              Statement statement = connection.createStatement()) {
             System.out.println(query);
+            System.out.println("Studenten " + name + " er oprettet");
             statement.executeUpdate(query);
 
         } catch (SQLException e) {
@@ -124,6 +132,7 @@ public class students {
 
         try (Connection connection = DriverManager.getConnection(dbUrl, username, password);
              Statement statement = connection.createStatement()) {
+            System.out.println("Studenten er tilmeldt");
             System.out.println(query);
             statement.executeUpdate(query);
 
